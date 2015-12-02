@@ -9,19 +9,25 @@ namespace MiniCSharpUtils
         private int count = 0;
         Random rand;
         private char[] specialChars = new[] {'!', '%', '*', ')', '(', '?', '#', '$', '^', '$', '~'};
-        private Dictionary<string, double> metrica; 
-
+        
+        private Dictionary<string, double> metrica;
+        string[] metrLength = { "Милиметры", "Сантиметры", "Дециметры", "Метры", "Километры", "Мили" };
+        string[] metrWeight = { "Грамм", "Унция", "Фунт", "Килограмм", "Центнер", "Тонна" };
+        
         public FrmMain()
         {
             InitializeComponent();
             rand = new Random();
             metrica = new Dictionary<string, double>();
-            metrica.Add("mm", 1);
-            metrica.Add("cm", 10);
-            metrica.Add("dm", 100);
-            metrica.Add("m", 1000);
-            metrica.Add("km", 1000000);
-            metrica.Add("mile", 1609344);
+            switch (cbMetric.Text)
+            {
+                case "Вес":
+                    SetDicWeight();
+                    break;
+                default:
+                    SetDicLength();
+                    break;
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -41,6 +47,8 @@ namespace MiniCSharpUtils
                 "Программа \"Мои утилиты\", \nсодержит ряд небольших программ, \nкоторые могут пригодится в жизни. \nА главное - научить меня основам программирования на С#. \nАвтор: Бурмистров Д.В.", "О программе");
         }
 
+        #region Счётчик
+
         private void btnPlus_Click(object sender, EventArgs e)
         {
             count++;
@@ -59,10 +67,13 @@ namespace MiniCSharpUtils
             lblCount.Text = Convert.ToString(count); // в качестве учебных целей
         }
 
+        #endregion
+
+        #region Генератор
+
         private void btnRandom_Click(object sender, EventArgs e)
         {
-            int n;
-            n = rand.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value) + 1);
+            int n = rand.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value) + 1);
             lblRandom.Text = n.ToString();
             if (chkbRandom.Checked)
             {
@@ -78,7 +89,7 @@ namespace MiniCSharpUtils
                 if (i <= 100) tbRandom.AppendText(n + "\n");
             }
             else tbRandom.AppendText(n + "\n");
-            
+
         }
 
         private void btnRandomClear_Click(object sender, EventArgs e)
@@ -90,6 +101,10 @@ namespace MiniCSharpUtils
         {
             Clipboard.SetText(tbRandom.Text);
         }
+
+        #endregion
+        
+        #region Блокнот
 
         private void tsmiInsertDate_Click(object sender, EventArgs e)
         {
@@ -130,6 +145,10 @@ namespace MiniCSharpUtils
             LoadNotepad();
         }
 
+        #endregion
+
+        #region Пароли
+
         private void btnCreatePassword_Click(object sender, EventArgs e)
         {
             if (clbPassword.CheckedItems.Count == 0) return;
@@ -152,13 +171,18 @@ namespace MiniCSharpUtils
                         password += Convert.ToChar(rand.Next(97, 123)); // 123, так как последний предел исключается
                         break;
                     default: // спец.символы
-                        password += specialChars[rand.Next(specialChars.Length)]; // specialChars.Length, так как последний предел исключается
+                        password += specialChars[rand.Next(specialChars.Length)];
+                            // specialChars.Length, так как последний предел исключается
                         break;
                 }
             }
             tbPassword.Text = password;
             Clipboard.SetText(password);
         }
+
+        #endregion
+
+        #region Конвертер
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
@@ -167,17 +191,27 @@ namespace MiniCSharpUtils
 
         private void Converter()
         {
-            double m1 = metrica[cbFrom.Text];
-            double m2 = metrica[cbTo.Text];
+            double m1;
+            double m2;
+            try
+            {
+                m1 = metrica[cbFrom.Text];
+                m2 = metrica[cbTo.Text];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка при конвертации");
+                return;
+            }
             double n = Convert.ToDouble(tbFrom.Text) * m1 / m2;
             tbTo.Text = n > 0.001 ? n.ToString() : n.ToString("0.0000E00");
         }
 
         private void btnSwap_Click(object sender, EventArgs e)
         {
-            string t = cbFrom.Text;
+            string from = cbFrom.Text;
             cbFrom.Text = cbTo.Text;
-            cbTo.Text = t;
+            cbTo.Text = from;
             Converter();
         }
 
@@ -185,55 +219,49 @@ namespace MiniCSharpUtils
         {
             switch (cbMetric.Text)
             {
-                case "длинна":
-                    metrica.Clear();
-                    metrica.Add("mm", 1);
-                    metrica.Add("cm", 10);
-                    metrica.Add("dm", 100);
-                    metrica.Add("m", 1000);
-                    metrica.Add("km", 1000000);
-                    metrica.Add("mile", 1609344);
-                    cbFrom.Items.Clear();
-                    cbFrom.Items.Add("mm");
-                    cbFrom.Items.Add("cm");
-                    cbFrom.Items.Add("dm");
-                    cbFrom.Items.Add("m");
-                    cbFrom.Items.Add("km");
-                    cbFrom.Items.Add("mile");
-                    cbFrom.Text = "mm";
-                    cbTo.Items.Clear();
-                    cbTo.Items.Add("mm");
-                    cbTo.Items.Add("cm");
-                    cbTo.Items.Add("dm");
-                    cbTo.Items.Add("m");
-                    cbTo.Items.Add("km");
-                    cbTo.Items.Add("mile");
-                    cbTo.Text = "mm";
+                case "Вес":
+                    SetDicWeight();
                     break;
                 default:
-                    metrica.Clear();
-                    metrica.Add("g", 1);
-                    metrica.Add("kg", 1000);
-                    metrica.Add("t", 1000000);
-                    metrica.Add("lb", 453.59); // английский фунт
-                    metrica.Add("oz", 28.35); // унция авердюпуа (флакончики/тюбики)
-                    cbFrom.Items.Clear();
-                    cbFrom.Items.Add("g");
-                    cbFrom.Items.Add("kg");
-                    cbFrom.Items.Add("t");
-                    cbFrom.Items.Add("lb");
-                    cbFrom.Items.Add("oz");
-                    cbFrom.Text = "g";
-                    cbTo.Items.Clear();
-                    cbTo.Items.Add("g");
-                    cbTo.Items.Add("kg");
-                    cbTo.Items.Add("t");
-                    cbTo.Items.Add("lb");
-                    cbTo.Items.Add("oz");
-                    cbTo.Text = "g";
+                    SetDicLength();
                     break;
             }
             tbTo.Text = "";
         }
+
+        private void SetDicWeight()
+        {
+            metrica.Clear();
+            metrica.Add("Грамм", 1);
+            metrica.Add("Унция", 28.35); // унция авердюпуа (флакончики/тюбики)
+            metrica.Add("Фунт", 453.59); // английский фунт
+            metrica.Add("Килограмм", 1000);
+            metrica.Add("Центнер", 100000); // центнер
+            metrica.Add("Тонна", 1000000);
+            string[] metrWeight2 = metrWeight.Clone() as string[];
+            cbFrom.DataSource = null;
+            cbFrom.DataSource = metrWeight;
+            cbTo.DataSource = null;
+            cbTo.DataSource = metrWeight2;
+        }
+
+        private void SetDicLength()
+        {
+            metrica.Clear();
+            metrica.Add("Миллиметр", 1);
+            metrica.Add("Сантиметр", 10);
+            metrica.Add("Дециметр", 100);
+            metrica.Add("Метр", 1000);
+            metrica.Add("Километр", 1000000);
+            metrica.Add("Миля", 1609344);
+            string[] metrLength2 = metrWeight.Clone() as string[];
+            cbFrom.DataSource = null;
+            cbFrom.DataSource = metrLength;
+            cbTo.DataSource = null;
+            cbTo.DataSource = metrLength2;
+        }
+
+        #endregion
+
     }
 }

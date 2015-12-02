@@ -40,6 +40,20 @@
             this.tsmiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpConverter = new System.Windows.Forms.TabPage();
+            this.cbMetric = new System.Windows.Forms.ComboBox();
+            this.tbTo = new System.Windows.Forms.TextBox();
+            this.tbFrom = new System.Windows.Forms.TextBox();
+            this.cbTo = new System.Windows.Forms.ComboBox();
+            this.btnSwap = new System.Windows.Forms.Button();
+            this.btnConvert = new System.Windows.Forms.Button();
+            this.cbFrom = new System.Windows.Forms.ComboBox();
+            this.tpPassword = new System.Windows.Forms.TabPage();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.btnCreatePassword = new System.Windows.Forms.Button();
+            this.lblPathLength = new System.Windows.Forms.Label();
+            this.nudPathLength = new System.Windows.Forms.NumericUpDown();
+            this.clbPassword = new System.Windows.Forms.CheckedListBox();
             this.tpNotepad = new System.Windows.Forms.TabPage();
             this.rtbNotepad = new System.Windows.Forms.RichTextBox();
             this.tpGenerator = new System.Windows.Forms.TabPage();
@@ -58,30 +72,16 @@
             this.btnMinus = new System.Windows.Forms.Button();
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.tpPassword = new System.Windows.Forms.TabPage();
-            this.clbPassword = new System.Windows.Forms.CheckedListBox();
-            this.nudPathLength = new System.Windows.Forms.NumericUpDown();
-            this.lblPathLength = new System.Windows.Forms.Label();
-            this.btnCreatePassword = new System.Windows.Forms.Button();
-            this.tbPassword = new System.Windows.Forms.TextBox();
-            this.tpConverter = new System.Windows.Forms.TabPage();
-            this.cbFrom = new System.Windows.Forms.ComboBox();
-            this.btnConvert = new System.Windows.Forms.Button();
-            this.cbTo = new System.Windows.Forms.ComboBox();
-            this.tbFrom = new System.Windows.Forms.TextBox();
-            this.tbTo = new System.Windows.Forms.TextBox();
-            this.btnSwap = new System.Windows.Forms.Button();
-            this.cbMetric = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tpConverter.SuspendLayout();
+            this.tpPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPathLength)).BeginInit();
             this.tpNotepad.SuspendLayout();
             this.tpGenerator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFrom)).BeginInit();
             this.tpCounter.SuspendLayout();
-            this.tpPassword.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPathLength)).BeginInit();
-            this.tpConverter.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -108,7 +108,9 @@
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(152, 22);
+            this.tsmiExit.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.E)));
+            this.tsmiExit.Size = new System.Drawing.Size(191, 22);
             this.tsmiExit.Text = "Выход";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
@@ -194,6 +196,168 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(306, 238);
             this.tabControl1.TabIndex = 1;
+            // 
+            // tpConverter
+            // 
+            this.tpConverter.Controls.Add(this.cbMetric);
+            this.tpConverter.Controls.Add(this.tbTo);
+            this.tpConverter.Controls.Add(this.tbFrom);
+            this.tpConverter.Controls.Add(this.cbTo);
+            this.tpConverter.Controls.Add(this.btnSwap);
+            this.tpConverter.Controls.Add(this.btnConvert);
+            this.tpConverter.Controls.Add(this.cbFrom);
+            this.tpConverter.Location = new System.Drawing.Point(4, 25);
+            this.tpConverter.Name = "tpConverter";
+            this.tpConverter.Size = new System.Drawing.Size(298, 209);
+            this.tpConverter.TabIndex = 4;
+            this.tpConverter.Text = "Конвертер";
+            this.tpConverter.UseVisualStyleBackColor = true;
+            // 
+            // cbMetric
+            // 
+            this.cbMetric.FormattingEnabled = true;
+            this.cbMetric.Items.AddRange(new object[] {
+            "Вес",
+            "Длинна"});
+            this.cbMetric.Location = new System.Drawing.Point(110, 20);
+            this.cbMetric.Name = "cbMetric";
+            this.cbMetric.Size = new System.Drawing.Size(82, 24);
+            this.cbMetric.TabIndex = 4;
+            this.cbMetric.Text = "Вес";
+            this.cbMetric.SelectedIndexChanged += new System.EventHandler(this.cbMetric_SelectedIndexChanged);
+            // 
+            // tbTo
+            // 
+            this.tbTo.Location = new System.Drawing.Point(217, 79);
+            this.tbTo.Name = "tbTo";
+            this.tbTo.ReadOnly = true;
+            this.tbTo.Size = new System.Drawing.Size(75, 22);
+            this.tbTo.TabIndex = 3;
+            // 
+            // tbFrom
+            // 
+            this.tbFrom.Location = new System.Drawing.Point(5, 80);
+            this.tbFrom.Name = "tbFrom";
+            this.tbFrom.Size = new System.Drawing.Size(75, 22);
+            this.tbFrom.TabIndex = 3;
+            this.tbFrom.Text = "1";
+            // 
+            // cbTo
+            // 
+            this.cbTo.FormattingEnabled = true;
+            this.cbTo.Location = new System.Drawing.Point(180, 49);
+            this.cbTo.Name = "cbTo";
+            this.cbTo.Size = new System.Drawing.Size(112, 24);
+            this.cbTo.TabIndex = 2;
+            // 
+            // btnSwap
+            // 
+            this.btnSwap.Location = new System.Drawing.Point(130, 50);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(42, 23);
+            this.btnSwap.TabIndex = 1;
+            this.btnSwap.Text = "< - >";
+            this.btnSwap.UseVisualStyleBackColor = true;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(86, 78);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(125, 23);
+            this.btnConvert.TabIndex = 1;
+            this.btnConvert.Text = "Конвертировать";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
+            // 
+            // cbFrom
+            // 
+            this.cbFrom.FormattingEnabled = true;
+            this.cbFrom.Location = new System.Drawing.Point(8, 49);
+            this.cbFrom.Name = "cbFrom";
+            this.cbFrom.Size = new System.Drawing.Size(112, 24);
+            this.cbFrom.TabIndex = 0;
+            // 
+            // tpPassword
+            // 
+            this.tpPassword.Controls.Add(this.tbPassword);
+            this.tpPassword.Controls.Add(this.btnCreatePassword);
+            this.tpPassword.Controls.Add(this.lblPathLength);
+            this.tpPassword.Controls.Add(this.nudPathLength);
+            this.tpPassword.Controls.Add(this.clbPassword);
+            this.tpPassword.Location = new System.Drawing.Point(4, 25);
+            this.tpPassword.Name = "tpPassword";
+            this.tpPassword.Size = new System.Drawing.Size(298, 209);
+            this.tpPassword.TabIndex = 3;
+            this.tpPassword.Text = "Пароли";
+            this.tpPassword.UseVisualStyleBackColor = true;
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPassword.Location = new System.Drawing.Point(11, 151);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(279, 22);
+            this.tbPassword.TabIndex = 4;
+            // 
+            // btnCreatePassword
+            // 
+            this.btnCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCreatePassword.Location = new System.Drawing.Point(11, 117);
+            this.btnCreatePassword.Name = "btnCreatePassword";
+            this.btnCreatePassword.Size = new System.Drawing.Size(135, 27);
+            this.btnCreatePassword.TabIndex = 3;
+            this.btnCreatePassword.Text = "Создать пароль";
+            this.btnCreatePassword.UseVisualStyleBackColor = true;
+            this.btnCreatePassword.Click += new System.EventHandler(this.btnCreatePassword_Click);
+            // 
+            // lblPathLength
+            // 
+            this.lblPathLength.AutoSize = true;
+            this.lblPathLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPathLength.Location = new System.Drawing.Point(8, 84);
+            this.lblPathLength.Name = "lblPathLength";
+            this.lblPathLength.Size = new System.Drawing.Size(107, 16);
+            this.lblPathLength.TabIndex = 2;
+            this.lblPathLength.Text = "Длинна пароля";
+            // 
+            // nudPathLength
+            // 
+            this.nudPathLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nudPathLength.Location = new System.Drawing.Point(121, 82);
+            this.nudPathLength.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPathLength.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPathLength.Name = "nudPathLength";
+            this.nudPathLength.Size = new System.Drawing.Size(66, 22);
+            this.nudPathLength.TabIndex = 1;
+            this.nudPathLength.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // clbPassword
+            // 
+            this.clbPassword.CheckOnClick = true;
+            this.clbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clbPassword.FormattingEnabled = true;
+            this.clbPassword.Items.AddRange(new object[] {
+            "Цифры",
+            "Прописные буквы",
+            "Строчные буквы",
+            "Спец.символы: !, %, *, ), (, ?, #, $, ^, $, ~"});
+            this.clbPassword.Location = new System.Drawing.Point(9, 4);
+            this.clbPassword.Name = "clbPassword";
+            this.clbPassword.Size = new System.Drawing.Size(281, 72);
+            this.clbPassword.TabIndex = 0;
             // 
             // tpNotepad
             // 
@@ -402,184 +566,6 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // tpPassword
-            // 
-            this.tpPassword.Controls.Add(this.tbPassword);
-            this.tpPassword.Controls.Add(this.btnCreatePassword);
-            this.tpPassword.Controls.Add(this.lblPathLength);
-            this.tpPassword.Controls.Add(this.nudPathLength);
-            this.tpPassword.Controls.Add(this.clbPassword);
-            this.tpPassword.Location = new System.Drawing.Point(4, 25);
-            this.tpPassword.Name = "tpPassword";
-            this.tpPassword.Size = new System.Drawing.Size(298, 209);
-            this.tpPassword.TabIndex = 3;
-            this.tpPassword.Text = "Пароли";
-            this.tpPassword.UseVisualStyleBackColor = true;
-            // 
-            // clbPassword
-            // 
-            this.clbPassword.CheckOnClick = true;
-            this.clbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clbPassword.FormattingEnabled = true;
-            this.clbPassword.Items.AddRange(new object[] {
-            "Цифры",
-            "Прописные буквы",
-            "Строчные буквы",
-            "Спец.символы: !, %, *, ), (, ?, #, $, ^, $, ~"});
-            this.clbPassword.Location = new System.Drawing.Point(9, 4);
-            this.clbPassword.Name = "clbPassword";
-            this.clbPassword.Size = new System.Drawing.Size(281, 72);
-            this.clbPassword.TabIndex = 0;
-            // 
-            // nudPathLength
-            // 
-            this.nudPathLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nudPathLength.Location = new System.Drawing.Point(121, 82);
-            this.nudPathLength.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPathLength.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudPathLength.Name = "nudPathLength";
-            this.nudPathLength.Size = new System.Drawing.Size(66, 22);
-            this.nudPathLength.TabIndex = 1;
-            this.nudPathLength.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // lblPathLength
-            // 
-            this.lblPathLength.AutoSize = true;
-            this.lblPathLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPathLength.Location = new System.Drawing.Point(8, 84);
-            this.lblPathLength.Name = "lblPathLength";
-            this.lblPathLength.Size = new System.Drawing.Size(107, 16);
-            this.lblPathLength.TabIndex = 2;
-            this.lblPathLength.Text = "Длинна пароля";
-            // 
-            // btnCreatePassword
-            // 
-            this.btnCreatePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreatePassword.Location = new System.Drawing.Point(11, 117);
-            this.btnCreatePassword.Name = "btnCreatePassword";
-            this.btnCreatePassword.Size = new System.Drawing.Size(135, 27);
-            this.btnCreatePassword.TabIndex = 3;
-            this.btnCreatePassword.Text = "Создать пароль";
-            this.btnCreatePassword.UseVisualStyleBackColor = true;
-            this.btnCreatePassword.Click += new System.EventHandler(this.btnCreatePassword_Click);
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPassword.Location = new System.Drawing.Point(11, 151);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(279, 22);
-            this.tbPassword.TabIndex = 4;
-            // 
-            // tpConverter
-            // 
-            this.tpConverter.Controls.Add(this.cbMetric);
-            this.tpConverter.Controls.Add(this.tbTo);
-            this.tpConverter.Controls.Add(this.tbFrom);
-            this.tpConverter.Controls.Add(this.cbTo);
-            this.tpConverter.Controls.Add(this.btnSwap);
-            this.tpConverter.Controls.Add(this.btnConvert);
-            this.tpConverter.Controls.Add(this.cbFrom);
-            this.tpConverter.Location = new System.Drawing.Point(4, 25);
-            this.tpConverter.Name = "tpConverter";
-            this.tpConverter.Size = new System.Drawing.Size(298, 209);
-            this.tpConverter.TabIndex = 4;
-            this.tpConverter.Text = "Конвертер";
-            this.tpConverter.UseVisualStyleBackColor = true;
-            // 
-            // cbFrom
-            // 
-            this.cbFrom.FormattingEnabled = true;
-            this.cbFrom.Items.AddRange(new object[] {
-            "mm",
-            "cm",
-            "dm",
-            "m",
-            "km",
-            "mile"});
-            this.cbFrom.Location = new System.Drawing.Point(5, 49);
-            this.cbFrom.Name = "cbFrom";
-            this.cbFrom.Size = new System.Drawing.Size(75, 24);
-            this.cbFrom.TabIndex = 0;
-            this.cbFrom.Text = "mm";
-            // 
-            // btnConvert
-            // 
-            this.btnConvert.Location = new System.Drawing.Point(86, 78);
-            this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(125, 23);
-            this.btnConvert.TabIndex = 1;
-            this.btnConvert.Text = "Конвертировать";
-            this.btnConvert.UseVisualStyleBackColor = true;
-            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
-            // 
-            // cbTo
-            // 
-            this.cbTo.FormattingEnabled = true;
-            this.cbTo.Items.AddRange(new object[] {
-            "mm",
-            "cm",
-            "dm",
-            "m",
-            "km",
-            "mile"});
-            this.cbTo.Location = new System.Drawing.Point(217, 49);
-            this.cbTo.Name = "cbTo";
-            this.cbTo.Size = new System.Drawing.Size(75, 24);
-            this.cbTo.TabIndex = 2;
-            this.cbTo.Text = "mm";
-            // 
-            // tbFrom
-            // 
-            this.tbFrom.Location = new System.Drawing.Point(5, 80);
-            this.tbFrom.Name = "tbFrom";
-            this.tbFrom.Size = new System.Drawing.Size(75, 22);
-            this.tbFrom.TabIndex = 3;
-            this.tbFrom.Text = "1";
-            // 
-            // tbTo
-            // 
-            this.tbTo.Location = new System.Drawing.Point(217, 79);
-            this.tbTo.Name = "tbTo";
-            this.tbTo.ReadOnly = true;
-            this.tbTo.Size = new System.Drawing.Size(75, 22);
-            this.tbTo.TabIndex = 3;
-            // 
-            // btnSwap
-            // 
-            this.btnSwap.Location = new System.Drawing.Point(86, 50);
-            this.btnSwap.Name = "btnSwap";
-            this.btnSwap.Size = new System.Drawing.Size(125, 23);
-            this.btnSwap.TabIndex = 1;
-            this.btnSwap.Text = "< - >";
-            this.btnSwap.UseVisualStyleBackColor = true;
-            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
-            // 
-            // cbMetric
-            // 
-            this.cbMetric.FormattingEnabled = true;
-            this.cbMetric.Items.AddRange(new object[] {
-            "длинна",
-            "вес"});
-            this.cbMetric.Location = new System.Drawing.Point(105, 20);
-            this.cbMetric.Name = "cbMetric";
-            this.cbMetric.Size = new System.Drawing.Size(82, 24);
-            this.cbMetric.TabIndex = 4;
-            this.cbMetric.Text = "длинна";
-            this.cbMetric.SelectedIndexChanged += new System.EventHandler(this.cbMetric_SelectedIndexChanged);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,6 +581,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tpConverter.ResumeLayout(false);
+            this.tpConverter.PerformLayout();
+            this.tpPassword.ResumeLayout(false);
+            this.tpPassword.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPathLength)).EndInit();
             this.tpNotepad.ResumeLayout(false);
             this.tpGenerator.ResumeLayout(false);
             this.tpGenerator.PerformLayout();
@@ -602,11 +593,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudFrom)).EndInit();
             this.tpCounter.ResumeLayout(false);
             this.tpCounter.PerformLayout();
-            this.tpPassword.ResumeLayout(false);
-            this.tpPassword.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPathLength)).EndInit();
-            this.tpConverter.ResumeLayout(false);
-            this.tpConverter.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
