@@ -11,7 +11,7 @@ namespace MiniCSharpUtils
         private char[] specialChars = new[] {'!', '%', '*', ')', '(', '?', '#', '$', '^', '$', '~'};
         
         private Dictionary<string, double> metrica;
-        string[] metrLength = { "Милиметры", "Сантиметры", "Дециметры", "Метры", "Километры", "Мили" };
+        string[] metrLength = { "Миллиметр", "Сантиметр", "Дециметр", "Метр", "Километр", "Миля" };
         string[] metrWeight = { "Грамм", "Унция", "Фунт", "Килограмм", "Центнер", "Тонна" };
         
         public FrmMain()
@@ -24,7 +24,7 @@ namespace MiniCSharpUtils
                 case "Вес":
                     SetDicWeight();
                     break;
-                default:
+                case "Длинна":
                     SetDicLength();
                     break;
             }
@@ -32,7 +32,6 @@ namespace MiniCSharpUtils
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            LoadNotepad();
             clbPassword.SetItemChecked(0, true);
         }
 
@@ -43,8 +42,10 @@ namespace MiniCSharpUtils
 
         private void tsmiAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Программа \"Мои утилиты\", \nсодержит ряд небольших программ, \nкоторые могут пригодится в жизни. \nА главное - научить меня основам программирования на С#. \nАвтор: Бурмистров Д.В.", "О программе");
+            MessageBox.Show("Программа \"Мои утилиты\", \nсодержит ряд небольших программ, \nкоторые могут пригодится в жизни.", 
+                            "О программе", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
         }
 
         #region Счётчик
@@ -254,7 +255,7 @@ namespace MiniCSharpUtils
             metrica.Add("Метр", 1000);
             metrica.Add("Километр", 1000000);
             metrica.Add("Миля", 1609344);
-            string[] metrLength2 = metrWeight.Clone() as string[];
+            string[] metrLength2 = metrLength.Clone() as string[];
             cbFrom.DataSource = null;
             cbFrom.DataSource = metrLength;
             cbTo.DataSource = null;

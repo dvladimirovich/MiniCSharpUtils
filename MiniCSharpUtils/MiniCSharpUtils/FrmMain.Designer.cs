@@ -93,7 +93,7 @@
             this.tsmiHelp});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(306, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(390, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,7 +194,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(306, 238);
+            this.tabControl1.Size = new System.Drawing.Size(390, 262);
             this.tabControl1.TabIndex = 1;
             // 
             // tpConverter
@@ -208,7 +208,7 @@
             this.tpConverter.Controls.Add(this.cbFrom);
             this.tpConverter.Location = new System.Drawing.Point(4, 25);
             this.tpConverter.Name = "tpConverter";
-            this.tpConverter.Size = new System.Drawing.Size(298, 209);
+            this.tpConverter.Size = new System.Drawing.Size(382, 233);
             this.tpConverter.TabIndex = 4;
             this.tpConverter.Text = "Конвертер";
             this.tpConverter.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@
             this.tpPassword.Controls.Add(this.clbPassword);
             this.tpPassword.Location = new System.Drawing.Point(4, 25);
             this.tpPassword.Name = "tpPassword";
-            this.tpPassword.Size = new System.Drawing.Size(298, 209);
+            this.tpPassword.Size = new System.Drawing.Size(382, 233);
             this.tpPassword.TabIndex = 3;
             this.tpPassword.Text = "Пароли";
             this.tpPassword.UseVisualStyleBackColor = true;
@@ -364,7 +364,7 @@
             this.tpNotepad.Controls.Add(this.rtbNotepad);
             this.tpNotepad.Location = new System.Drawing.Point(4, 25);
             this.tpNotepad.Name = "tpNotepad";
-            this.tpNotepad.Size = new System.Drawing.Size(298, 209);
+            this.tpNotepad.Size = new System.Drawing.Size(382, 233);
             this.tpNotepad.TabIndex = 2;
             this.tpNotepad.Text = "Блокнот";
             this.tpNotepad.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             this.rtbNotepad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rtbNotepad.Location = new System.Drawing.Point(0, 0);
             this.rtbNotepad.Name = "rtbNotepad";
-            this.rtbNotepad.Size = new System.Drawing.Size(298, 209);
+            this.rtbNotepad.Size = new System.Drawing.Size(382, 233);
             this.rtbNotepad.TabIndex = 0;
             this.rtbNotepad.Text = "";
             // 
@@ -394,7 +394,7 @@
             this.tpGenerator.Location = new System.Drawing.Point(4, 25);
             this.tpGenerator.Name = "tpGenerator";
             this.tpGenerator.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGenerator.Size = new System.Drawing.Size(298, 209);
+            this.tpGenerator.Size = new System.Drawing.Size(382, 233);
             this.tpGenerator.TabIndex = 1;
             this.tpGenerator.Text = "Генератор";
             this.tpGenerator.UseVisualStyleBackColor = true;
@@ -403,7 +403,7 @@
             // 
             this.chkbRandom.AutoSize = true;
             this.chkbRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chkbRandom.Location = new System.Drawing.Point(9, 169);
+            this.chkbRandom.Location = new System.Drawing.Point(12, 100);
             this.chkbRandom.Name = "chkbRandom";
             this.chkbRandom.Size = new System.Drawing.Size(138, 22);
             this.chkbRandom.TabIndex = 5;
@@ -413,7 +413,7 @@
             // btnRandomCopy
             // 
             this.btnRandomCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRandomCopy.Location = new System.Drawing.Point(6, 128);
+            this.btnRandomCopy.Location = new System.Drawing.Point(75, 133);
             this.btnRandomCopy.Name = "btnRandomCopy";
             this.btnRandomCopy.Size = new System.Drawing.Size(139, 34);
             this.btnRandomCopy.TabIndex = 4;
@@ -424,7 +424,7 @@
             // btnRandomClear
             // 
             this.btnRandomClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRandomClear.Location = new System.Drawing.Point(6, 88);
+            this.btnRandomClear.Location = new System.Drawing.Point(220, 133);
             this.btnRandomClear.Name = "btnRandomClear";
             this.btnRandomClear.Size = new System.Drawing.Size(139, 34);
             this.btnRandomClear.TabIndex = 4;
@@ -435,7 +435,7 @@
             // tbRandom
             // 
             this.tbRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbRandom.Location = new System.Drawing.Point(151, 90);
+            this.tbRandom.Location = new System.Drawing.Point(258, 11);
             this.tbRandom.Multiline = true;
             this.tbRandom.Name = "tbRandom";
             this.tbRandom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -471,12 +471,12 @@
             // lblRandom
             // 
             this.lblRandom.AutoSize = true;
-            this.lblRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblRandom.Location = new System.Drawing.Point(151, 53);
+            this.lblRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblRandom.Location = new System.Drawing.Point(151, 56);
             this.lblRandom.Name = "lblRandom";
-            this.lblRandom.Size = new System.Drawing.Size(101, 24);
+            this.lblRandom.Size = new System.Drawing.Size(57, 20);
             this.lblRandom.TabIndex = 1;
-            this.lblRandom.Text = "lblRandom";
+            this.lblRandom.Text = "Число";
             // 
             // lblTo
             // 
@@ -518,7 +518,7 @@
             this.tpCounter.Location = new System.Drawing.Point(4, 25);
             this.tpCounter.Name = "tpCounter";
             this.tpCounter.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCounter.Size = new System.Drawing.Size(298, 209);
+            this.tpCounter.Size = new System.Drawing.Size(382, 233);
             this.tpCounter.TabIndex = 0;
             this.tpCounter.Text = "Счётчик";
             this.tpCounter.UseVisualStyleBackColor = true;
@@ -570,7 +570,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 263);
+            this.ClientSize = new System.Drawing.Size(390, 287);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
